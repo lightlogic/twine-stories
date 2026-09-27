@@ -1,0 +1,26 @@
+
+:: premierCouloir {"position":"800,425","size":"100,100"}
+Vous êtes face à deux porte. L'une mène à [[gauche]] et l'autre [[droite]]
+
+:: droite {"position":"875,575","size":"100,100"}
+Un couloir tout éclairé avec au fond une grand porte en métal. Lorsque vous vous approchez, et que vous voulez la toucher,
+<div class="shazam">elle disparait quandvous la touchez. <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/K%C5%99ivokl%C3%A1t_-_dungeon_door.jpg/500px-K%C5%99ivokl%C3%A1t_-_dungeon_door.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="A photo of a hallway and two doors" /></div>.
+
+
+
+Au fond du couloir il y a un coude. Vous passez ce coude et appercevez alors [[une porte->piece2]] .
+
+
+
+:: gauche {"position":"675,550","size":"100,100"}
+Un couloir tout sombre. Au fond, on voit des raies de lumière entrer [[sous la porte ->piece2]] .
+
+
+
+:: piece2 {"position":"725,725","size":"100,100"}
+Vous êtes dans une pièce banale de pause. Une machine à popcorn. Vous vous asseyiez et vous attendez.
+
+... depuis longtemps déjà maintenant.
+
+FIN.
+

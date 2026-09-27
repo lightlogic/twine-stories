@@ -1,0 +1,32 @@
+/* UI SugarCube */
+#ui-bar {
+  display: none;
+}
+
+#story {
+  margin-left: 3.5em;
+}
+
+/* HTML tags */
+body {
+  background-color: white;
+  color: darkgrey;
+  font-family: Futura, Impact, Helvetica, sans-serif;
+  font-size: 125%;
+}
+
+a {
+  color: rgb(52, 193, 174);
+}
+
+a:hover {
+  color: crimson;
+  text-decoration: none;
+  border-bottom: 4px solid crimson;
+}
+
+/* Effects */
+.shazam:hover {
+  opacity: 0;
+  transition: 1s all ease;
+}

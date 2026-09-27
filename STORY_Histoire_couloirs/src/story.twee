@@ -1,0 +1,12 @@
+:: StoryTitle
+Histoire de couloirs
+
+
+:: StoryData
+{
+  "ifid": "91E5935C-6CD5-4D34-9E54-293F5412C6BC",
+  "format": "SugarCube",
+  "format-version": "2.37.3",
+  "start": "premierCouloir",
+  "zoom": 1
+}
