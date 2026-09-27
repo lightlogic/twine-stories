@@ -36,11 +36,12 @@ jobs:
           unzip -q sugarcube.zip -d sugarcube
           rm -rf "$HOME/tweego/storyformats/sugarcube-2"
           mv "$(dirname "$(find sugarcube -name format.js | head -1)")" "$HOME/tweego/storyformats/sugarcube-2"
-          "$HOME/tweego/tweego" --list-formats
+          "$HOME/tweego/tweego" --list-formats || true   # tweego exits 1 after listing
+          grep -q "\"version\":\"${SUGARCUBE_VERSION}\"" "$HOME/tweego/storyformats/sugarcube-2/format.js"
 
       - name: Build
-        run: TWEEGO="$HOME/tweego/tweego" bash -x ./build.sh
-        
+        run: TWEEGO="$HOME/tweego/tweego" ./build.sh
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
