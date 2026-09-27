@@ -1,0 +1,47 @@
+name: Build and deploy stories
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:          # adds a "Run workflow" button in the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:                  # don't let two deploys overlap
+  group: pages
+  cancel-in-progress: true
+
+env:
+  TWEEGO_VERSION: 2.1.1
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Tweego
+        run: |
+          wget -q "https://github.com/tmedwards/tweego/releases/download/v${TWEEGO_VERSION}/tweego-${TWEEGO_VERSION}-linux-x64.zip"
+          unzip -q "tweego-${TWEEGO_VERSION}-linux-x64.zip" -d "$HOME/tweego"
+          chmod +x "$HOME/tweego/tweego"
+
+      - name: Build
+        run: TWEEGO="$HOME/tweego/tweego" ./build.sh
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
