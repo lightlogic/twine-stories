@@ -16,6 +16,7 @@ concurrency:                  # don't let two deploys overlap
 
 env:
   TWEEGO_VERSION: 2.1.1
+  SUGARCUBE_VERSION: 2.37.3   # must be >= the format-version in each story's StoryData
 
 jobs:
   build:
@@ -25,9 +26,17 @@ jobs:
 
       - name: Install Tweego
         run: |
-          wget -q "https://github.com/tmedwards/tweego/releases/download/v${TWEEGO_VERSION}/tweego-${TWEEGO_VERSION}-linux-x64.zip"
-          unzip -q "tweego-${TWEEGO_VERSION}-linux-x64.zip" -d "$HOME/tweego"
+          wget -q "https://github.com/tmedwards/tweego/releases/download/v${TWEEGO_VERSION}/tweego-${TWEEGO_VERSION}-linux-x64.zip" -O tweego.zip
+          unzip -q tweego.zip -d "$HOME/tweego"
           chmod +x "$HOME/tweego/tweego"
+
+      - name: Install SugarCube
+        run: |
+          wget -q "https://github.com/tmedwards/sugarcube-2/releases/download/v${SUGARCUBE_VERSION}/sugarcube-${SUGARCUBE_VERSION}-for-twine-2.1-local.zip" -O sugarcube.zip
+          unzip -q sugarcube.zip -d sugarcube
+          rm -rf "$HOME/tweego/storyformats/sugarcube-2"
+          mv "$(dirname "$(find sugarcube -name format.js | head -1)")" "$HOME/tweego/storyformats/sugarcube-2"
+          "$HOME/tweego/tweego" --list-formats
 
       - name: Build
         run: TWEEGO="$HOME/tweego/tweego" ./build.sh
