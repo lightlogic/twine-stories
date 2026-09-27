@@ -1,5 +1,12 @@
 # twine-stories
-Repository pour mes histoires
+
+Interactive stories written with Twine and the SugarCube story format.
+
+**▶ Play the stories online: <https://lightlogic.github.io/twine-stories/>**
+
+The site is rebuilt and published automatically on every push to `main`. Each story has its own address, e.g. [Histoire de couloirs](https://lightlogic.github.io/twine-stories/HistoiresCouloirs/).
+
+[![Build and deploy stories](https://github.com/lightlogic/twine-stories/actions/workflows/pages.yml/badge.svg)](https://github.com/lightlogic/twine-stories/actions/workflows/pages.yml)
 
 ## Repository layout
 
