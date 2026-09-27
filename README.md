@@ -1,4 +1,4 @@
-# twine-histoires
+# twine-stories
 Repository pour mes histoires
 
 ## Repository layout
@@ -12,8 +12,8 @@ stories/
       story.twee              # StoryTitle and StoryData
       special.twee            # SugarCube special passages
       widgets.twee            # <<widget>> definitions, tagged [widget]
-      chapter-01.twee         # story content, one file per chapter
-      chapter-02.twee
+      chap-01.twee         # story content, one file per chapter
+      chap-02.twee
       js/
         01-config.js          # Config.* settings
         02-setup.js           # shared functions and constants on `setup`
@@ -21,7 +21,7 @@ stories/
       css/
         story.css
     assets/                   # images, audio, fonts (copied as-is)
-shared/
+shared/                       # OPTIONAL
   src/                        # code and passages included in every story
     js/
       common-macros.js
@@ -210,3 +210,20 @@ Reload the browser after each save; stop with `Ctrl+C`. Watch mode does not copy
 | Story format not found | The installed SugarCube is older than the `format-version` in `StoryData`: see step 3. |
 | `Permission denied` | Run `chmod +x ~/.local/share/tweego/tweego`. |
 | Images missing in the browser | The `assets/` folder wasn't copied to `dist/<story-name>/`. |
+
+## Licence
+
+The content of this repository (story texts, Twee source, CSS, JavaScript and build scripts) is dedicated to the public domain under [CC0 1.0 Universal](LICENSE). You may copy, modify and reuse it for any purpose, without asking permission and without attribution.
+
+### Third-party material
+
+| Item | Author / source | Licence |
+|---|---|---|
+| `stories/HistoiresCouloirs/assets/<image-file>` | [<author>](<source URL>) | CC0 1.0 |
+| [SugarCube](https://www.motoslave.net/sugarcube/2/) story format (embedded in the published HTML, not stored in this repository) | Thomas Michael Edwards | BSD 2-Clause |
+
+## Acknowledgements
+
+Stories are written with [Twine](https://twinery.org/) and compiled with [Tweego](https://www.motoslave.net/tweego/), using the [SugarCube](https://www.motoslave.net/sugarcube/2/) story format.
+
+Material added to this repository from other sources must be compatible with CC0 or listed in this table with its own licence.
