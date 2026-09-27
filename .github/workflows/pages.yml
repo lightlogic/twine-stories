@@ -32,7 +32,7 @@ jobs:
 
       - name: Install SugarCube
         run: |
-          wget -q "https://github.com/tmedwards/sugarcube-2/releases/download/v${SUGARCUBE_VERSION}/sugarcube-${SUGARCUBE_VERSION}-for-twine-2.1-local.zip" -O sugarcube.zip
+          wget -q "https://www.motoslave.net/sugarcube/download.php/2/sugarcube-${SUGARCUBE_VERSION}-for-twine-2.1-local.zip" -O sugarcube.zip
           unzip -q sugarcube.zip -d sugarcube
           rm -rf "$HOME/tweego/storyformats/sugarcube-2"
           mv "$(dirname "$(find sugarcube -name format.js | head -1)")" "$HOME/tweego/storyformats/sugarcube-2"
