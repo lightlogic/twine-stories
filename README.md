@@ -20,7 +20,7 @@ stories/
         03-macros.js          # custom macros (Macro.add)
       css/
         story.css
-    assets/                   # images, audio, fonts (copied as-is)
+    include/                   # images, audio, fonts (copied as-is)
 shared/                       # OPTIONAL
   src/                        # code and passages included in every story
     js/
@@ -83,12 +83,12 @@ Code that initialises story variables belongs in the `StoryInit` passage (`speci
 
 > **Importing from the Twine app:** a story exported as Twee from the Twine app contains a `:: Story JavaScript [script]` passage and a `:: Story Stylesheet [stylesheet]` passage. Move their content into `js/` and `css/` and delete the passages, so the code exists in only one place.
 
-### `assets/`: media
+### `include/`: media
 
-Images, audio and fonts go in `assets/`, **outside** `src/`. Tweego would otherwise embed media found in the source folder into the HTML as base64. The build copies `assets/` next to the compiled story, so reference files with relative paths:
+Images, audio and fonts go in `include/`, **outside** `src/`. Tweego would otherwise embed media found in the source folder into the HTML as base64. The build copies `include/` next to the compiled story, so reference files with relative paths:
 
 ```html
-<img src="assets/map.png" alt="Map of the valley">
+<img src="include/map.png" alt="Map of the valley">
 ```
 
 Paths are case-sensitive on GitHub Pages, and must not start with `/`.
@@ -115,11 +115,11 @@ Requires [Tweego](https://github.com/tmedwards/tweego/releases) in your `PATH`.
 xdg-open dist/index.html
 ```
 
-`build.sh` compiles every folder in `stories/` to `dist/<story-name>/index.html`, copies its assets, and writes an index page at `dist/index.html` linking to all stories. The GitHub Actions workflow runs the same script.
+`build.sh` compiles every folder in `stories/` to `dist/<story-name>/index.html`, copies its include, and writes an index page at `dist/index.html` linking to all stories. The GitHub Actions workflow runs the same script.
 
 ### Adding a new story
 
-1. Create `stories/<story-name>/src/` and `stories/<story-name>/assets/`.
+1. Create `stories/<story-name>/src/` and `stories/<story-name>/include/`.
 2. Add a `story.twee` with `StoryTitle` and `StoryData` (generate a new IFID, e.g. by creating the story once in the Twine app or with `uuidgen`, uppercased).
 3. Run `./build.sh` and check the result locally.
 4. Commit and push to `main`; the story appears on GitHub Pages after the workflow finishes.
@@ -186,11 +186,11 @@ xdg-open dist/index.html
 ```bash
 mkdir -p dist/<story-name>
 tweego -o dist/<story-name>/index.html stories/<story-name>/src
-cp -r stories/<story-name>/assets dist/<story-name>/
+cp -r stories/<story-name>/include dist/<story-name>/
 xdg-open dist/<story-name>/index.html
 ```
 
-Assets must be copied next to the compiled HTML, because stories reference them with relative paths (`assets/…`).
+include must be copied next to the compiled HTML, because stories reference them with relative paths (`include/…`).
 
 ### 5. Watch mode while writing
 
@@ -200,7 +200,7 @@ Tweego can recompile automatically each time a source file changes:
 tweego -w -o dist/<story-name>/index.html stories/<story-name>/src
 ```
 
-Reload the browser after each save; stop with `Ctrl+C`. Watch mode does not copy assets: run the `cp` command above once, and again after adding new media.
+Reload the browser after each save; stop with `Ctrl+C`. Watch mode does not copy include: run the `cp` command above once, and again after adding new media.
 
 ### Troubleshooting
 
@@ -209,7 +209,7 @@ Reload the browser after each save; stop with `Ctrl+C`. Watch mode does not copy
 | `tweego: command not found` | The `PATH` line is missing or the shell wasn't reloaded (`source ~/.bashrc`, or open a new terminal). |
 | Story format not found | The installed SugarCube is older than the `format-version` in `StoryData`: see step 3. |
 | `Permission denied` | Run `chmod +x ~/.local/share/tweego/tweego`. |
-| Images missing in the browser | The `assets/` folder wasn't copied to `dist/<story-name>/`. |
+| Images missing in the browser | The `include/` folder wasn't copied to `dist/<story-name>/`. |
 
 ## Licence
 
@@ -219,7 +219,7 @@ The content of this repository (story texts, Twee source, CSS, JavaScript and bu
 
 | Item | Author / source | Licence |
 |---|---|---|
-| `stories/HistoiresCouloirs/assets/<image-file>` | [<author>](<source URL>) | CC0 1.0 |
+| `stories/HistoiresCouloirs/include/<image-file>` | [<author>](<source URL>) | CC0 1.0 |
 | [SugarCube](https://www.motoslave.net/sugarcube/2/) story format (embedded in the published HTML, not stored in this repository) | Thomas Michael Edwards | BSD 2-Clause |
 
 ## Acknowledgements

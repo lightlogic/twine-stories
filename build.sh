@@ -11,7 +11,7 @@ for dir in stories/*/; do
   name=$(basename "$dir")
   mkdir -p "dist/$name"
   "$TWEEGO" -o "dist/$name/index.html" "$dir/src"
-  [ -d "$dir/assets" ] && cp -r "$dir/assets" "dist/$name/"
+  [ -d "$dir/include" ] && cp -r "$dir/include" "dist/$name/"
   echo "<li><a href=\"$name/\">$name</a></li>" >> "$index"
   echo "Built $name"
 done
