@@ -4,7 +4,7 @@ Vous êtes face à deux portes. L'une mène à [[gauche]] et l'autre [[droite]]
 
 :: droite {"position":"875,575","size":"100,100"}
 Un couloir tout éclairé avec au fond une grand porte en métal. Lorsque vous vous approchez, et que vous voulez la toucher,
-<div class="shazam">elle disparait ! <img src="../include/door_input_house_entrance.jpg" alt="A photo of a hallway and two doors" /></div>.
+<div class="shazam">elle disparait ! <img src="./include/door_input_house_entrance.jpg" alt="A photo of a hallway and two doors" /></div>.
 
 
 Au fond du couloir il y a un coude. Vous passez ce coude et appercevez alors [[une porte->piece2]] .
