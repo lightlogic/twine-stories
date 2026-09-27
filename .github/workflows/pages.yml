@@ -39,8 +39,8 @@ jobs:
           "$HOME/tweego/tweego" --list-formats
 
       - name: Build
-        run: TWEEGO="$HOME/tweego/tweego" ./build.sh
-
+        run: TWEEGO="$HOME/tweego/tweego" bash -x ./build.sh
+        
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
